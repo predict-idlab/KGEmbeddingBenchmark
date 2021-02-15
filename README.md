@@ -17,7 +17,20 @@ This frameworks allows to generate and compare whole Knowledge Graph embeddings 
 
 ```python
  graphs = ...
- embedder = KGEmbedder(graphs,'examples/',clear_dir=True)
+ # Graph2Vec
+ embedder = KGEmbedder(graphs,'temp_dir/',clear_dir=True)
+ # GE-FSG
+ embedder = GEFSGEmbedder(graphs,'temp_dir/',min_sup=2,clear_dir=True)
+ # DGK
+ embedder = DeepGraphEmbedder(graphs)
+ # WL
+ embedder = WLEmbedder(graphs,'temp_dir/')
+ # SimGNN
+ # requires train and test set of graphs with their GED
+ embedder = SimGNNEmbedder(graphs_train,graphs_test,output_dir_train,output_dir_test,relable=True,clear_dir=True)
+ # GMN
+ embedder = GMNEmbedder(graphs)
+ 
  embeddings = embedder.embed()
 
 ```
